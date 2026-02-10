@@ -24,8 +24,31 @@ public class Repositorie {
     }
 
     public void adicionarUsuario(Usuario usuario) {
+        if (!this.usuarios.isEmpty()) {
+            for (Usuario u : usuarios) {
+                if (usuario.getCpf().equals(u.getCpf())) {
+                    throw new IllegalArgumentException("CPF já cadastrado no sistema");
+                }
+            }
+        }
         this.usuarios.add(usuario);
         System.out.println("Usuário " + usuario.getNome() + "cadastrado no sistema");
+    }
+
+    public void removerUsuario(String cpf) {
+        if (this.usuarios.isEmpty()) {
+            System.out.println("Lista de Usuários Vazia");
+            return;
+        }
+        cpf = cpf.replaceAll("\\D", "");
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCpf().equals(cpf)) {
+                this.usuarios.remove(usuario);
+                System.out.println("Usuario " + usuario.getNome() + " removido do sistema");
+                return;
+            }
+        }
+        System.out.println("Usuário não encontrado");
     }
 
     public void listarUsuarios() {

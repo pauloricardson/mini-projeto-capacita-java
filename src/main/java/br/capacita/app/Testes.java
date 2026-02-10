@@ -22,8 +22,14 @@ public class Testes {
             email = teclado.nextLine();
 
             Usuario usuario = new Aluno(nome, cpf, email);
+            repo.adicionarUsuario(usuario);
 
         }
+
+        repo.listarUsuarios();
+        System.out.println("Remover um usuario");
+        String valor = teclado.nextLine();
+        repo.removerUsuario(valor);
 
         repo.listarUsuarios();
     }
