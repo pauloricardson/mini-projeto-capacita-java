@@ -1,11 +1,16 @@
 package br.capacita.app;
 
+import br.capacita.model.Aluno;
+import br.capacita.model.Usuario;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
+
+        limparConsole();
 
         System.out.println("Bem-vindo ao Sistema de Empréstimo de Livros");
 
@@ -23,7 +28,7 @@ public class Main {
                     + "\n7 - Sair\n"
             );
 
-            System.out.print("Digite sua opção >>> ");
+            System.out.print("Digite sua opção > ");
             opcao = teclado.nextInt();
             limparConsole();
             if (opcao <= 0 || opcao > 7) {
@@ -33,6 +38,32 @@ public class Main {
             switch (opcao) {
                 case 1:
                     System.out.println("<<< Caradastro de Usuário >>>");
+                    teclado.nextLine();
+                    System.out.format(
+                            "Qual usuário deseja cadastar?"
+                            + "\n1 - Aluno"
+                            + "\n2 - Professor"
+                            + "\n> "
+                    );
+                    do {
+                        opcao = teclado.nextInt();
+                        if (opcao != 1 && opcao != 2) System.out.format("Opção de usuário Inválido, tente novamente > ");
+                    } while (opcao != 1 && opcao != 2);
+                    limparConsole();
+                    String nome;
+                    String email;
+                    switch (opcao) {
+                        case 1:
+                            System.out.println("<<< Cadastro de Aluno >>>");
+                            System.out.print("Nome > "); nome = teclado.nextLine();
+                            teclado.nextLine();
+                            System.out.print("\nEmail > "); email = teclado.nextLine();
+                            Usuario u = new Aluno(nome, email);
+                            break;
+                        case 2:
+                            break;
+                    }
+
                     break;
                 case 2:
                     break;
