@@ -24,6 +24,10 @@ public class Livro {
         return autor;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public boolean isDisponivel() {
         return disponivel;
     }
