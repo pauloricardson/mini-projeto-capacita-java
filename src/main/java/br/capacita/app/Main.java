@@ -1,47 +1,51 @@
 package br.capacita.app;
 
 import br.capacita.model.Aluno;
+import br.capacita.model.Professor;
 import br.capacita.model.Usuario;
-import br.capacita.service.RepoTeste;
+import br.capacita.repositories.Repositorie;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner teclado = new Scanner(System.in);
+        Repositorie repo = new Repositorie();
 
+        Scanner teclado = new Scanner(System.in);
         limparConsole();
 
-        System.out.println("Bem-vindo ao Sistema de Empréstimo de Livros");
+        int opcaoMenuPrincipal = 0;
 
-        int opcao = 0;
+        while (opcaoMenuPrincipal != 5) {
 
-        while (opcao != 7) {
+            traco();
+            System.out.println("Sistema de Empréstimo de Livros");
+            traco();
+
             System.out.printf(
                     "\nEsolha o que deseja fazer: "
-                    + "\n1 - Cadastar de Usuário"
-                    + "\n2 - Cadatrar Aluno"
-                    + "\n3 - Cadatrar Professor"
-                    + "\n4 - Pesquisar Livro"
-                    + "\n5 - Emprestar Livro"
-                    + "\n6 - Desvolver Livro"
-                    + "\n7 - Sair\n"
+                    + "\n1 - Cadastrar Usuário"
+                    + "\n2 - Remover Usuario"
+                    + "\n3 - Empréstimo e Devolução"
+                    + "\n4 - Pesquisar Livros"
+                    + "\n5 - Sair\n"
+                    + "Digite sua opção > "
             );
 
-            System.out.print("Digite sua opção > ");
-            opcao = teclado.nextInt();
+            opcaoMenuPrincipal = teclado.nextInt();
 
             limparConsole();
 
-            if (opcao <= 0 || opcao > 7) {
-                System.out.println("Opção Inválida, tente novamente");
+            if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 7) {
+                System.out.println("ATENÇÃO! Opção Inválida, tente novamente");
             }
 
-            switch (opcao) {
+            switch (opcaoMenuPrincipal) {
                 case 1:
-
+                    traco();
                     System.out.println("<<< Cadastro de Usuário >>>");
+                    traco();
 
                     int opcaoUsuario;
 
@@ -52,19 +56,55 @@ public class Main {
                         opcaoUsuario = teclado.nextInt();
                     } while (opcaoUsuario != 1 && opcaoUsuario != 2);
 
-                    teclado.nextLine(); // limpar buffer
+                    teclado.nextLine();
 
-                    System.out.print("Nome > ");
+                    limparConsole();
+
+                    traco();
+                    System.out.println("<<< Cadastro de Usuário >>>");
+                    traco();
+
+                    System.out.print("Nome: ");
                     String nome = teclado.nextLine();
 
-                    System.out.print("Email > ");
+                    System.out.print("Email: ");
                     String email = teclado.nextLine();
 
+                    System.out.print("CPF (somente números): ");
+                    String cpf = teclado.nextLine();
+
+                    limparConsole();
+
                     if (opcaoUsuario == 1) {
+                        Usuario usuario = new Aluno(nome, cpf, email);
+                        try {
+                            repo.adicionarUsuario(usuario);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+
+                    if (opcaoUsuario == 2) {
+                        Usuario usuario = new Professor(nome, cpf, email);
+                        try {
+                            repo.adicionarUsuario(usuario);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
 
                     break;
                 case 2:
+                    traco();
+                    System.out.println("<<< Remoção de Usuário >>>");
+                    traco();
+
+                    teclado.nextLine();
+
+                    System.out.print("Informe o CPF: ");
+                    String removerPorCpf = teclado.nextLine();
+
+                    repo.removerUsuario(removerPorCpf);
                     break;
                 case 3:
                     break;
