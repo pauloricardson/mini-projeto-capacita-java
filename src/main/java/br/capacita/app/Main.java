@@ -61,7 +61,6 @@ public class Main {
                     String email = teclado.nextLine();
 
                     if (opcaoUsuario == 1) {
-                        Usuario u = new Aluno(nome, email);
                     }
 
                     break;

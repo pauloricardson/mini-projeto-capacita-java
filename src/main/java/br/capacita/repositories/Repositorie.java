@@ -27,4 +27,20 @@ public class Repositorie {
         this.usuarios.add(usuario);
         System.out.println("Usuário " + usuario.getNome() + "cadastrado no sistema");
     }
+
+    public void listarUsuarios() {
+        if (this.usuarios.isEmpty()) {
+            System.out.println("Lista de Usuários Vazia");
+            return;
+        }
+        int count = 0;
+        for (Usuario usuario : usuarios) {
+            count++;
+            System.out.println("#" + count + " | NOME: "
+                    + usuario.getNome() + " | CPF: "
+                    + usuario.getCpf() + " | EMAIL: "
+                    + usuario.getEmail() + " | TIPO: "
+                    + usuario.tipoUsuario());
+        }
+    }
 }

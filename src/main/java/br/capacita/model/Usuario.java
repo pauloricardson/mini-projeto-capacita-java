@@ -4,10 +4,12 @@ public abstract class Usuario {
 
     private String nome;
     private String email;
+    private String cpf;
 
-    public Usuario(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
+    public Usuario(String nome, String cpf, String email) {
+        setNome(nome);
+        setCpf(cpf);
+        setEmail(email);
     }
 
     public String getNome() {
@@ -16,6 +18,10 @@ public abstract class Usuario {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setNome(String nome) {
@@ -30,6 +36,13 @@ public abstract class Usuario {
             throw new IllegalArgumentException("Email não pode ser nulo ou vazio");
         }
         this.email = email;
+    }
+
+    public void setCpf(String cpf) {
+        if (cpf == null || cpf.isBlank()) {
+            throw new IllegalArgumentException("CPF não pode ser nulo ou vazio");
+        }
+        this.cpf = cpf.replaceAll("\\D", "");
     }
 
     public abstract String tipoUsuario();
