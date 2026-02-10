@@ -1,15 +1,19 @@
 package br.capacita.model;
 
+import java.util.UUID;
+
 public class Livro {
 
     private String titulo;
     private String autor;
+    private String id;
     private boolean disponivel;
 
     public Livro(String titulo, String autor) {
         setTitulo(titulo);
         setAutor(autor);
         setDisponivel(true);
+        this.id =  UUID.randomUUID().toString();
     }
 
     public String getTitulo() {
@@ -18,6 +22,10 @@ public class Livro {
 
     public String getAutor() {
         return autor;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public boolean isDisponivel() {

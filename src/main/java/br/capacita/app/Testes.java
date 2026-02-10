@@ -13,6 +13,8 @@ public class Testes {
 
         Livro l1 = new Livro("Livro tal", "Paulo");
 
+        System.out.println(l1.getId());
+
         repo.adicionarLivro(l1);
 
         repo.pesquisarLivro("tal");
