@@ -25,13 +25,14 @@ public class Main {
 
             System.out.print("Digite sua opção >>> ");
             opcao = teclado.nextInt();
+            limparConsole();
             if (opcao <= 0 || opcao > 7) {
                 System.out.println("Opção Inválida, tente novamente");
             }
 
             switch (opcao) {
                 case 1:
-                    System.out.println("teste");
+                    System.out.println("<<< Caradastro de Usuário >>>");
                     break;
                 case 2:
                     break;
@@ -44,6 +45,12 @@ public class Main {
                 case 6:
                     break;
             }
+        }
+    }
+
+    public static void limparConsole() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
         }
     }
 }
