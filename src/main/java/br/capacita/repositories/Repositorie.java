@@ -72,8 +72,18 @@ public class Repositorie {
         this.livros.add(livro);
     }
 
-    public void removerLivro() {
+    public void removerLivro(long id) {
+        if (livros.isEmpty()) {
+            System.out.println("A lista de livros está vazia");
+            return;
+        }
 
+        for (Livro livro : livros) {
+            if (livro.getId() == id) {
+                this.livros.remove(livro);
+                System.out.println("Livro " + livro.getTitulo() + " removido do sistema");
+            }
+        }
     }
 
     public void pesquisarLivro(String titulo) {
