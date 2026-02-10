@@ -7,6 +7,7 @@ public class Livro {
     private String titulo;
     private String autor;
     private long id;
+    private int exemplares;
     private boolean disponivel;
 
     public Livro(String titulo, String autor) {
@@ -28,6 +29,10 @@ public class Livro {
         return id;
     }
 
+    public int getExemplares() {
+        return exemplares;
+    }
+
     public boolean isDisponivel() {
         return disponivel;
     }
@@ -44,6 +49,10 @@ public class Livro {
             throw new IllegalArgumentException("Autor não pode ser nulo ou vazio");
         }
         this.autor = autor;
+    }
+
+    public void setExemplares(int exemplares) {
+        this.exemplares = exemplares;
     }
 
     public void setDisponivel(boolean disponivel) {
