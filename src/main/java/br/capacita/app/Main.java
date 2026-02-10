@@ -2,6 +2,7 @@ package br.capacita.app;
 
 import br.capacita.model.Aluno;
 import br.capacita.model.Usuario;
+import br.capacita.service.RepoTeste;
 
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
+
+        RepoTeste repositorio = new RepoTeste();
 
         limparConsole();
 
@@ -59,6 +62,7 @@ public class Main {
                             teclado.nextLine();
                             System.out.print("\nEmail > "); email = teclado.nextLine();
                             Usuario u = new Aluno(nome, email);
+                            repositorio.adicionar(u);
                             break;
                         case 2:
                             break;
