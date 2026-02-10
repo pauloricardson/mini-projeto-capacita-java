@@ -11,8 +11,6 @@ public class Main {
 
         Scanner teclado = new Scanner(System.in);
 
-        RepoTeste repositorio = new RepoTeste();
-
         limparConsole();
 
         System.out.println("Bem-vindo ao Sistema de Empréstimo de Livros");
@@ -22,7 +20,7 @@ public class Main {
         while (opcao != 7) {
             System.out.printf(
                     "\nEsolha o que deseja fazer: "
-                    + "\n1 - Cadastar Livro"
+                    + "\n1 - Cadastar de Usuário"
                     + "\n2 - Cadatrar Aluno"
                     + "\n3 - Cadatrar Professor"
                     + "\n4 - Pesquisar Livro"
@@ -33,39 +31,37 @@ public class Main {
 
             System.out.print("Digite sua opção > ");
             opcao = teclado.nextInt();
+
             limparConsole();
+
             if (opcao <= 0 || opcao > 7) {
                 System.out.println("Opção Inválida, tente novamente");
             }
 
             switch (opcao) {
                 case 1:
-                    System.out.println("<<< Caradastro de Usuário >>>");
-                    teclado.nextLine();
-                    System.out.format(
-                            "Qual usuário deseja cadastar?"
-                            + "\n1 - Aluno"
-                            + "\n2 - Professor"
-                            + "\n> "
-                    );
+
+                    System.out.println("<<< Cadastro de Usuário >>>");
+
+                    int opcaoUsuario;
+
                     do {
-                        opcao = teclado.nextInt();
-                        if (opcao != 1 && opcao != 2) System.out.format("Opção de usuário Inválido, tente novamente > ");
-                    } while (opcao != 1 && opcao != 2);
-                    limparConsole();
-                    String nome;
-                    String email;
-                    switch (opcao) {
-                        case 1:
-                            System.out.println("<<< Cadastro de Aluno >>>");
-                            System.out.print("Nome > "); nome = teclado.nextLine();
-                            teclado.nextLine();
-                            System.out.print("\nEmail > "); email = teclado.nextLine();
-                            Usuario u = new Aluno(nome, email);
-                            repositorio.adicionar(u);
-                            break;
-                        case 2:
-                            break;
+                        System.out.println("1 - Aluno");
+                        System.out.println("2 - Professor");
+                        System.out.print("> ");
+                        opcaoUsuario = teclado.nextInt();
+                    } while (opcaoUsuario != 1 && opcaoUsuario != 2);
+
+                    teclado.nextLine(); // limpar buffer
+
+                    System.out.print("Nome > ");
+                    String nome = teclado.nextLine();
+
+                    System.out.print("Email > ");
+                    String email = teclado.nextLine();
+
+                    if (opcaoUsuario == 1) {
+                        Usuario u = new Aluno(nome, email);
                     }
 
                     break;
@@ -74,7 +70,6 @@ public class Main {
                 case 3:
                     break;
                 case 4:
-                    repositorio.listar();
                     break;
                 case 5:
                     break;

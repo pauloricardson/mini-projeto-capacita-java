@@ -8,6 +8,7 @@ public class RepoTeste {
     private ArrayList<Usuario> usuarios;
 
     public RepoTeste() {
+        this.usuarios = new ArrayList<>();
     }
 
     public ArrayList<Usuario> getUsuarios() {
@@ -19,6 +20,11 @@ public class RepoTeste {
     }
 
     public void listar() {
+        if (usuarios.isEmpty()) {
+            System.out.println("Nenhum usuário cadastrado.");
+            return;
+        }
+
         for (Usuario u : usuarios) {
             System.out.println(u.getNome());
         }
