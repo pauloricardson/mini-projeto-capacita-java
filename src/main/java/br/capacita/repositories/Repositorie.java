@@ -3,6 +3,7 @@ package br.capacita.repositories;
 import br.capacita.model.Livro;
 import br.capacita.model.Usuario;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class Repositorie {
@@ -65,5 +66,39 @@ public class Repositorie {
                     + usuario.getEmail() + " | TIPO: "
                     + usuario.tipoUsuario());
         }
+    }
+
+    public void adicionarLivro(Livro livro) {
+        this.livros.add(livro);
+    }
+
+    public void removerLivro() {
+
+    }
+
+    public void pesquisarLivro(String titulo) {
+        String termoNormal = normalizar(titulo.toLowerCase());
+
+        boolean encontrado = false;
+        for (Livro livro : livros) {
+
+            String nomeLivro = normalizar(
+                    livro.getTitulo().toLowerCase()
+            );
+
+            if (nomeLivro.contains(termoNormal)) {
+                System.out.println(livro.getTitulo() + "teste");
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Nenhum livro encontrado na pesquisa");
+        }
+    }
+
+    public String normalizar(String texto) {
+        texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        return texto.replaceAll("[^\\p{ASCII}]", "");
     }
 }

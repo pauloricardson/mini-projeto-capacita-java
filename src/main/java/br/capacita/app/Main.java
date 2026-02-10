@@ -83,4 +83,8 @@ public class Main {
             System.out.println();
         }
     }
+
+    public static void traco() {
+        System.out.println("--------------------------------------------------");
+    }
 }
