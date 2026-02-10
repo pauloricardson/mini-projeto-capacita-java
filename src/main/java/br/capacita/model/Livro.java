@@ -6,14 +6,14 @@ public class Livro {
 
     private String titulo;
     private String autor;
-    private String id;
+    private long id;
     private boolean disponivel;
 
     public Livro(String titulo, String autor) {
         setTitulo(titulo);
         setAutor(autor);
         setDisponivel(true);
-        this.id =  UUID.randomUUID().toString();
+        this.id = gerarId();
     }
 
     public String getTitulo() {
@@ -22,10 +22,6 @@ public class Livro {
 
     public String getAutor() {
         return autor;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public boolean isDisponivel() {
@@ -48,5 +44,9 @@ public class Livro {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public static long gerarId() {
+        return System.currentTimeMillis();
     }
 }
