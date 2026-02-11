@@ -104,7 +104,7 @@ public class Main {
                     System.out.print("Informe o CPF: ");
                     String removerPorCpf = teclado.nextLine();
 
-                    Usuario obj = repo.remover2(removerPorCpf);
+                    Usuario obj = repo.selecionarUsuario(removerPorCpf);
 
                     if (obj != null) {
                         teclado.nextLine();
