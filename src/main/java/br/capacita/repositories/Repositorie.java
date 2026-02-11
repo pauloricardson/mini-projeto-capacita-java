@@ -52,6 +52,19 @@ public class Repositorie {
         System.out.println("Usuário não encontrado");
     }
 
+    public Usuario remover2 (String cpf) {
+        if (this.usuarios.isEmpty()) {
+            return null;
+        }
+        cpf = cpf.replaceAll("\\D", "");
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCpf().equals(cpf)) {
+                return usuario;
+            }
+        }
+        throw new IllegalArgumentException("Usuário não encontrado");
+    }
+
     public void listarUsuarios() {
         if (this.usuarios.isEmpty()) {
             System.out.println("Lista de Usuários Vazia");
@@ -66,21 +79,6 @@ public class Repositorie {
                     + usuario.getEmail() + " | TIPO: "
                     + usuario.tipoUsuario());
         }
-    }
-
-    public void selececionarUmUsuario(String cpf) {
-        if (this.usuarios.isEmpty()) {
-            System.out.println("Lista de Usuários Vazia");
-            return;
-        }
-        cpf = cpf.replaceAll("\\D", "");
-        for (Usuario usuario : usuarios) {
-            if (usuario.getCpf().equals(cpf)) {
-                System.out.println("Usuario " + usuario.getNome() + " removido do sistema");
-                return;
-            }
-        }
-        System.out.println("Usuário não encontrado");
     }
 
     public void adicionarLivro(Livro livro) {

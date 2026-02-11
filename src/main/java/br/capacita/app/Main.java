@@ -104,7 +104,22 @@ public class Main {
                     System.out.print("Informe o CPF: ");
                     String removerPorCpf = teclado.nextLine();
 
-                    repo.removerUsuario(removerPorCpf);
+                    Usuario obj = repo.remover2(removerPorCpf);
+
+                    if (obj != null) {
+                        teclado.nextLine();
+                        System.out.println("Deseja remover o usuário " + obj.getNome() + "?");
+                        System.out.println("1 - SIM");
+                        System.out.println("2 - NÃO");
+                        int opcaoRemocao = teclado.nextInt();
+                        if (opcaoRemocao == 1) {
+                            repo.removerUsuario(removerPorCpf);
+                        } else {
+                            System.out.println("Operação Cancelada");
+                        }
+                    } else {
+                        System.out.println("Usuário não encontrado");
+                    }
                     break;
                 case 3:
                     break;
