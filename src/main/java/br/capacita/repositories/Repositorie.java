@@ -52,7 +52,7 @@ public class Repositorie {
         System.out.println("Usuário não encontrado");
     }
 
-    public Usuario remover2 (String cpf) {
+    public Usuario selecionarUsuario (String cpf) {
         if (this.usuarios.isEmpty()) {
             return null;
         }
