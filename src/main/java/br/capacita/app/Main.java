@@ -6,6 +6,7 @@ import br.capacita.model.Professor;
 import br.capacita.model.Usuario;
 import br.capacita.repositories.Repositorie;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -58,9 +59,13 @@ public class Main {
                             + "Digite sua opção > "
             );
 
-            opcaoMenuPrincipal = teclado.nextInt();
+            try {
+                opcaoMenuPrincipal = teclado.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("ATENÇÃO! Entrada inválida");
+            }
 
-            limparConsole();
+            teclado.nextLine();
 
             if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 7) {
                 System.out.println("ATENÇÃO! Opção Inválida, tente novamente");
