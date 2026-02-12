@@ -146,6 +146,7 @@ public class Main {
 
                     if (opcaoCadastroLivro == 1) {
                         Livro livro = new Livro(titulo, autor, exemplares);
+                        repo.adicionarLivro(livro);
                     }
 
                     break;
