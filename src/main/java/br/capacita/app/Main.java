@@ -107,10 +107,11 @@ public class Main {
                     Usuario obj = repo.selecionarUsuario(removerPorCpf);
 
                     if (obj != null) {
-                        teclado.nextLine();
                         System.out.println("Deseja remover o usuário " + obj.getNome() + "?");
                         System.out.println("1 - SIM");
                         System.out.println("2 - NÃO");
+                        System.out.println("> ");
+                        limparConsole();
                         int opcaoRemocao = teclado.nextInt();
                         if (opcaoRemocao == 1) {
                             repo.removerUsuario(removerPorCpf);
@@ -122,6 +123,7 @@ public class Main {
                     }
                     break;
                 case 3:
+
                     break;
                 case 4:
                     break;
