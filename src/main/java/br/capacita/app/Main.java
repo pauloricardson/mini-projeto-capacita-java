@@ -30,7 +30,7 @@ public class Main {
         7. Empréstimo e Devolução
             1. Emprestar
             2. Devolver
-            3. Listar
+            3. Listar -> enums: EMPRESTADO, DEVOLVIDO.
         8. Sair
          */
 
