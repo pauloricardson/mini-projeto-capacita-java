@@ -62,10 +62,10 @@ public class Main {
             try {
                 opcaoMenuPrincipal = teclado.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("ATENÇÃO! Entrada inválida");
+                teclado.nextLine();
             }
 
-            teclado.nextLine();
+            limparConsole();
 
             if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 7) {
                 System.out.println("ATENÇÃO! Opção Inválida, tente novamente");
@@ -77,13 +77,25 @@ public class Main {
                     System.out.println("<<< Cadastro de Usuário >>>");
                     traco();
 
-                    int opcaoUsuario;
+                    int opcaoUsuario = 0;
 
                     do {
-                        System.out.println("1 - Aluno");
-                        System.out.println("2 - Professor");
+                        System.out.println("1. Aluno");
+                        System.out.println("2. Professor");
                         System.out.print("> ");
-                        opcaoUsuario = teclado.nextInt();
+
+                        try {
+                            opcaoUsuario = teclado.nextInt();
+
+                        } catch (InputMismatchException e) {
+                            teclado.nextLine();
+                            limparConsole();
+                            System.out.println("ATENÇÃO! Opção inválida.");
+                            traco();
+                            System.out.println("<<< Cadastro de Usuário >>>");
+                            traco();
+                        }
+
                     } while (opcaoUsuario != 1 && opcaoUsuario != 2);
 
                     teclado.nextLine();
@@ -206,6 +218,9 @@ public class Main {
                     break;
             }
         }
+        traco();
+        System.out.println("<<< PROGRAMA FINALIZADO >>>");
+        traco();
     }
 
     public static void limparConsole() {
