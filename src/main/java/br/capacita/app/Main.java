@@ -12,13 +12,25 @@ public class Main {
     public static void main(String[] args) {
 
         /*
-        1. Cadastrar Usuário
+        1. Cadastrar Usuário:
+            1. Aluno
+            2. Professor
         2. Remover Usuário
+            >> Remove por CPF: void (Talvez)
         3. Pesquisar Usuário
+            >> Pesquisa pelo nome: void
+                #1 | Nome: Paulo Ricardson Silva Costa | CPF: 60325749388 | EMAIL: paulo@email.com
         4. Cadastrar Livro
+            >> Cadastro Simples
         5. Editar Livro
+            >> Editar variáveis como número de exemplares, e talvez outro
         6. Pesquisar Livro
+            >> Pesquisa livro por nome: void
+                ID: 78898009828 | TÍTULO: Desenvolvimento Web | AUTOR: Paulo | EXEMPLARES: 5
         7. Empréstimo e Devolução
+            1. Emprestar
+            2. Devolver
+            3. Listar
         8. Sair
          */
 
