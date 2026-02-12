@@ -11,6 +11,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        /*
+        1. Cadastrar Usuário
+        2. Remover Usuário
+        3. Pesquisar Usuário
+        4. Cadastrar Livro
+        5. Editar Livro
+        6. Pesquisar Livro
+        7. Empréstimo e Devolução
+        8. Sair
+         */
+
         Repositorie repo = new Repositorie();
 
         Scanner teclado = new Scanner(System.in);
