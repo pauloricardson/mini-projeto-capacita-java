@@ -10,9 +10,10 @@ public class Livro {
     private int exemplares;
     private boolean disponivel;
 
-    public Livro(String titulo, String autor) {
+    public Livro(String titulo, String autor, int exemplares) {
         setTitulo(titulo);
         setAutor(autor);
+        setExemplares(exemplares);
         setDisponivel(true);
         this.id = gerarId();
     }

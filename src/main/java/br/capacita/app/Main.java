@@ -1,6 +1,7 @@
 package br.capacita.app;
 
 import br.capacita.model.Aluno;
+import br.capacita.model.Livro;
 import br.capacita.model.Professor;
 import br.capacita.model.Usuario;
 import br.capacita.repositories.Repositorie;
@@ -128,6 +129,24 @@ public class Main {
                     System.out.println("Cadastrar Livro");
                     traco();
 
+                    System.out.print("Título: ");
+                    String titulo = teclado.nextLine();
+
+                    System.out.print("Autor: ");
+                    String autor = teclado.nextLine();
+
+                    System.out.print("Título: ");
+                    int exemplares = teclado.nextInt();
+
+                    traco();
+                    System.out.println("Deseja Cadastrar Livros?");
+                    traco();
+                    System.out.println("1 - Sim\n2 - Não\n> ");
+                    int opcaoCadastroLivro = teclado.nextInt();
+
+                    if (opcaoCadastroLivro == 1) {
+                        Livro livro = new Livro(titulo, autor, exemplares);
+                    }
 
                     break;
                 case 4:
