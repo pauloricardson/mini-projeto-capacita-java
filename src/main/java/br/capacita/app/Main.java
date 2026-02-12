@@ -129,13 +129,15 @@ public class Main {
                     System.out.println("Cadastrar Livro");
                     traco();
 
+                    teclado.nextLine();
+
                     System.out.print("Título: ");
                     String titulo = teclado.nextLine();
 
                     System.out.print("Autor: ");
                     String autor = teclado.nextLine();
 
-                    System.out.print("Título: ");
+                    System.out.print("Número de exemplares: ");
                     int exemplares = teclado.nextInt();
 
                     traco();
@@ -144,13 +146,31 @@ public class Main {
                     System.out.println("1 - Sim\n2 - Não\n> ");
                     int opcaoCadastroLivro = teclado.nextInt();
 
+                    limparConsole();
+
                     if (opcaoCadastroLivro == 1) {
                         Livro livro = new Livro(titulo, autor, exemplares);
                         repo.adicionarLivro(livro);
+                    } else {
+                        System.out.println("Opreração não concluída");
                     }
+
 
                     break;
                 case 4:
+                    System.out.println("Pesquise o livro");
+                    teclado.nextLine();
+                    titulo = teclado.nextLine();
+                    System.out.println("Resultados: ");
+                    repo.pesquisarLivro(titulo);
+
+                    System.out.println("Pressione Qualquer tecla para sair");
+                    teclado.nextLine();
+
+                    limparConsole();
+
+
+
                     break;
                 case 5:
                     break;
