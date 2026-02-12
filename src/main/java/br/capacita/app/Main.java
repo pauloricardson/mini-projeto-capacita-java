@@ -87,7 +87,11 @@ public class Main {
                         try {
                             opcaoUsuario = teclado.nextInt();
 
-                        } catch (InputMismatchException e) {
+                            if (opcaoUsuario != 1 && opcaoUsuario != 2) {
+                                throw new IllegalArgumentException();
+                            }
+
+                        } catch (Exception e) {
                             teclado.nextLine();
                             limparConsole();
                             System.out.println("ATENÇÃO! Opção inválida.");
@@ -102,9 +106,16 @@ public class Main {
 
                     limparConsole();
 
-                    traco();
-                    System.out.println("<<< Cadastro de Usuário >>>");
-                    traco();
+                    if (opcaoUsuario == 1) {
+                        traco();
+                        System.out.println("<<< Cadastro de Usuário (ALUNO) >>>");
+                        traco();
+                    } else {
+                        traco();
+                        System.out.println("<<< Cadastro de Usuário (PROFESSOR) >>>");
+                        traco();
+                    }
+
 
                     System.out.print("Nome: ");
                     String nome = teclado.nextLine();
