@@ -1,7 +1,5 @@
 package br.capacita.model;
 
-import java.util.UUID;
-
 public class Livro {
 
     private String titulo;
