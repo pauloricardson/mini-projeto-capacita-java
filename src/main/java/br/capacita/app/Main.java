@@ -25,12 +25,13 @@ public class Main {
 
             System.out.printf(
                     "\nEsolha o que deseja fazer: "
-                    + "\n1 - Cadastrar Usuário"
-                    + "\n2 - Remover Usuario"
-                    + "\n3 - Empréstimo e Devolução"
-                    + "\n4 - Pesquisar Livros"
-                    + "\n5 - Sair\n"
-                    + "Digite sua opção > "
+                            + "\n1 - Cadastrar Usuário"
+                            + "\n2 - Remover Usuario"
+                            + "\n3 - Cadastrar Livro"
+                            + "\n4 - Empréstimo e Devolução"
+                            + "\n5 - Pesquisar Livros"
+                            + "\n6 - Sair\n"
+                            + "Digite sua opção > "
             );
 
             opcaoMenuPrincipal = teclado.nextInt();
@@ -123,6 +124,10 @@ public class Main {
                     }
                     break;
                 case 3:
+                    traco();
+                    System.out.println("Cadastrar Livro");
+                    traco();
+
 
                     break;
                 case 4:
