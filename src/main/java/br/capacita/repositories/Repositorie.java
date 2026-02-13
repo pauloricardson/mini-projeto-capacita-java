@@ -28,7 +28,7 @@ public class Repositorie {
         if (!this.usuarios.isEmpty()) {
             for (Usuario u : usuarios) {
                 if (usuario.getCpf().equals(u.getCpf())) {
-                    throw new IllegalArgumentException("CPF já cadastrado no sistema");
+                    throw new IllegalArgumentException("ATENÇÃO: CPF já cadastrado no sistema");
                 }
             }
         }

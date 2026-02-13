@@ -116,7 +116,6 @@ public class Main {
                         traco();
                     }
 
-
                     System.out.print("Nome: ");
                     String nome = teclado.nextLine();
 
@@ -127,6 +126,11 @@ public class Main {
                     String cpf = teclado.nextLine();
 
                     limparConsole();
+
+                    System.out.print("Deseja cadastrar o usuário " + nome + "(s/n)?");
+
+
+
 
                     if (opcaoUsuario == 1) {
                         Usuario usuario = new Aluno(nome, cpf, email);
