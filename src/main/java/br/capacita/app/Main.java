@@ -127,9 +127,32 @@ public class Main {
 
                     limparConsole();
 
+                    teclado.nextLine();
+
                     System.out.print("Deseja cadastrar o usuário " + nome + "(s/n)?");
 
+                    char opcao = ' ';
 
+                    do {
+                        try {
+                            opcao = teclado.next().charAt(0);
+                            if (opcao != 's' && opcao != 'n') {
+                                throw new IllegalArgumentException();
+                            }
+                        } catch (Exception e) {
+                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s - sim / n - não):");
+                        }
+                    } while (opcao == 's' || opcao == 'n');
+
+
+
+
+
+                    if (opcao == 's') {
+
+                    } else {
+                        System.out.println("ATENÇÃO! Operação cancelada");
+                    }
 
 
                     if (opcaoUsuario == 1) {
