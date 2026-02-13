@@ -128,14 +128,21 @@ public class Main {
                     System.out.print("CPF (somente números): ");
                     String cpf = teclado.nextLine();
 
-                    System.out.print("Deseja cadastrar o usuário " + nome + " (s/n)? ");
+                    traco();
+
+                    System.out.printf("Nome: " + nome +
+                            "\nE-mail: " + email +
+                            "\nCPF: " + cpf + "\n");
+
+                    traco();
+
+                    System.out.print("Confirmar (s/n)? ");
 
                     String entrada;
                     char opcao = '\0';
 
                     do {
                         try {
-                            //opcao = teclado.next().toLowerCase().charAt(0);
 
                             entrada = teclado.next();
 
