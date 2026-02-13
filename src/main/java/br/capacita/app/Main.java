@@ -125,52 +125,56 @@ public class Main {
                     System.out.print("CPF (somente números): ");
                     String cpf = teclado.nextLine();
 
-                    limparConsole();
+                    System.out.print("Deseja cadastrar o usuário " + nome + " (s/n)? ");
 
-                    teclado.nextLine();
-
-                    System.out.print("Deseja cadastrar o usuário " + nome + "(s/n)?");
-
-                    char opcao = ' ';
+                    String entrada;
+                    char opcao = '\0';
 
                     do {
                         try {
-                            opcao = teclado.next().charAt(0);
+                            //opcao = teclado.next().toLowerCase().charAt(0);
+
+                            entrada = teclado.next();
+
+                            if (entrada.length() == 1) {
+                                opcao = entrada.toLowerCase().charAt(0);
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+
                             if (opcao != 's' && opcao != 'n') {
                                 throw new IllegalArgumentException();
                             }
+
                         } catch (Exception e) {
-                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s - sim / n - não):");
+                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                            teclado.nextLine();
                         }
-                    } while (opcao == 's' || opcao == 'n');
 
+                    } while (opcao != 's' && opcao != 'n');
 
-
-
+                    limparConsole();
 
                     if (opcao == 's') {
+                        if (opcaoUsuario == 1) {
+                            Usuario usuario = new Aluno(nome, cpf, email);
+                            try {
+                                repo.adicionarUsuario(usuario);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                        }
 
+                        if (opcaoUsuario == 2) {
+                            Usuario usuario = new Professor(nome, cpf, email);
+                            try {
+                                repo.adicionarUsuario(usuario);
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                        }
                     } else {
                         System.out.println("ATENÇÃO! Operação cancelada");
-                    }
-
-
-                    if (opcaoUsuario == 1) {
-                        Usuario usuario = new Aluno(nome, cpf, email);
-                        try {
-                            repo.adicionarUsuario(usuario);
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
-                    }
-
-                    if (opcaoUsuario == 2) {
-                        Usuario usuario = new Professor(nome, cpf, email);
-                        try {
-                            repo.adicionarUsuario(usuario);
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
                     }
 
                     break;
