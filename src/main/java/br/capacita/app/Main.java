@@ -82,12 +82,13 @@ public class Main {
                     do {
                         System.out.println("1. Aluno");
                         System.out.println("2. Professor");
+                        System.out.println("3. Voltar");
                         System.out.print("> ");
 
                         try {
                             opcaoUsuario = teclado.nextInt();
 
-                            if (opcaoUsuario != 1 && opcaoUsuario != 2) {
+                            if (opcaoUsuario != 1 && opcaoUsuario != 2 && opcaoUsuario != 3) {
                                 throw new IllegalArgumentException();
                             }
 
@@ -100,7 +101,7 @@ public class Main {
                             traco();
                         }
 
-                    } while (opcaoUsuario != 1 && opcaoUsuario != 2);
+                    } while (opcaoUsuario != 1 && opcaoUsuario != 2 && opcaoUsuario != 3);
 
                     teclado.nextLine();
 
@@ -110,10 +111,12 @@ public class Main {
                         traco();
                         System.out.println("<<< Cadastro de Usuário (ALUNO) >>>");
                         traco();
-                    } else {
+                    } else if (opcaoUsuario == 2){
                         traco();
                         System.out.println("<<< Cadastro de Usuário (PROFESSOR) >>>");
                         traco();
+                    } else {
+                        break;
                     }
 
                     System.out.print("Nome: ");
