@@ -360,25 +360,24 @@ public class Main {
                     System.out.println("<<< EDITAR LIVRO >>>");
                     traco();
 
-                    int opcaoLivro = 0;
+                    int opcaoLivro;
 
-                    teclado.nextLine();
-
-                    System.out.print("Informe o ID: ");
-                    opcaoLivro = teclado.nextInt();
+                    teclado.nextLine(); // limpar buffer
 
                     while (true) {
                         try {
+                            System.out.print("Informe o ID: ");
+                            opcaoLivro = teclado.nextInt();
 
                             if (opcaoLivro != 1 && opcaoLivro != 2) {
                                 throw new IllegalArgumentException();
                             }
 
-                            opcaoLivro = teclado.nextInt();
-                            break;
+                            break; // sai do loop se válido
+
                         } catch (Exception e) {
                             System.out.println("MENSAGEM: Opção inválida. Tente novamente.");
-                            teclado.nextLine();
+                            teclado.nextLine(); // limpar entrada inválida
                         }
                     }
 
