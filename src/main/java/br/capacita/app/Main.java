@@ -42,7 +42,7 @@ public class Main {
 
         int opcaoMenuPrincipal = 0;
 
-        while (opcaoMenuPrincipal != 5) {
+        while (opcaoMenuPrincipal != 10) {
 
             traco();
             System.out.println("Sistema de Empréstimo de Livros");
@@ -354,8 +354,34 @@ public class Main {
 
                     break;
 
-                    // Editar Livro
-                    case 5:
+                // Editar Livro
+                case 5:
+                    traco();
+                    System.out.println("<<< EDITAR LIVRO >>>");
+                    traco();
+
+                    int opcaoLivro = 0;
+
+                    teclado.nextLine();
+
+                    System.out.print("Informe o ID: ");
+                    opcaoLivro = teclado.nextInt();
+
+                    while (true) {
+                        try {
+
+                            if (opcaoLivro != 1 && opcaoLivro != 2) {
+                                throw new IllegalArgumentException();
+                            }
+
+                            opcaoLivro = teclado.nextInt();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("MENSAGEM: Opção inválida. Tente novamente.");
+                            teclado.nextLine();
+                        }
+                    }
+
                     break;
                 case 6:
                     break;
