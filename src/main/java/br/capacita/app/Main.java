@@ -52,7 +52,7 @@ public class Main {
                     "\nEsolha o que deseja fazer: "
                             + "\n1 - Cadastrar Usuário"
                             + "\n2 - Remover Usuario"
-                            + "\n3 - Cadastrar Livro"
+                            + "\n3 - Pesquisar Usuário"
                             + "\n4 - Empréstimo e Devolução"
                             + "\n5 - Pesquisar Livros"
                             + "\n6 - Sair\n"
@@ -200,26 +200,48 @@ public class Main {
                     teclado.nextLine();
 
                     System.out.print("Informe o CPF: ");
+
                     String removerPorCpf = teclado.nextLine();
 
-                    Usuario obj = repo.selecionarUsuario(removerPorCpf);
+                    limparConsole();
 
-                    if (obj != null) {
-                        System.out.println("Deseja remover o usuário " + obj.getNome() + "?");
-                        System.out.println("1 - SIM");
-                        System.out.println("2 - NÃO");
-                        System.out.println("> ");
-                        int opcaoRemocao = teclado.nextInt();
+                    opcao = '\0';
 
-                        if (opcaoRemocao == 1) {
+                    do {
+                        try {
+
+                            entrada = teclado.next();
+
+                            if (entrada.length() == 1) {
+                                opcao = entrada.toLowerCase().charAt(0);
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+
+                            if (opcao != 's' && opcao != 'n') {
+                                throw new IllegalArgumentException();
+                            }
+
+                        } catch (Exception e) {
+                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                            teclado.nextLine();
+                        }
+
+                    } while (opcao != 's' && opcao != 'n');
+
+                    if (opcao == 's') {
+                        try {
                             repo.removerUsuario(removerPorCpf);
-                        } else {
-                            System.out.println("Operação Cancelada");
+                        } catch (IllegalArgumentException e) {
+                            System.out.printf(e.getMessage() + "\n");
                         }
                     } else {
-                        System.out.println("Usuário não encontrado");
+                        System.out.printf("MENSAGEM: Opreação Cancelada");
                     }
+
                     break;
+
+
                 case 3:
                     traco();
                     System.out.println("Cadastrar Livro");
