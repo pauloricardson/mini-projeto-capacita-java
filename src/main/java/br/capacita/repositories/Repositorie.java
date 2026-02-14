@@ -40,7 +40,7 @@ public class Repositorie {
     public void removerUsuario(String cpf) {
 
         if (this.usuarios.isEmpty()) {
-            throw new IllegalArgumentException("Lista de usuários vazia");
+            throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
         }
 
         cpf = cpf.replaceAll("\\D", "");
@@ -52,12 +52,12 @@ public class Repositorie {
 
             if (usuario.getCpf().equals(cpf)) {
                 iterator.remove(); // forma segura
-                System.out.println("Usuario " + usuario.getNome() + " removido do sistema");
+                System.out.println("MENSAGEM: Usuario " + usuario.getNome() + " removido do sistema.");
                 return;
             }
         }
 
-        throw new IllegalArgumentException("Usuário não encontrado");
+        throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
     }
 
     public Usuario selecionarUsuario (String cpf) {

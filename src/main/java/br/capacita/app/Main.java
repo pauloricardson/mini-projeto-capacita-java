@@ -229,7 +229,7 @@ public class Main {
 
                     } while (opcao != 's' && opcao != 'n');
 
-                    limparConsole();
+                    traco();
 
                     if (opcao == 's') {
                         try {
@@ -240,9 +240,14 @@ public class Main {
                     } else {
                         System.out.printf("MENSAGEM: Opreação de remoção de Usuário Cancelada\n");
                     }
+                    traco();
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
+                    teclado.nextLine();
+
+                    limparConsole();
 
                     break;
-
 
                 case 3:
                     traco();
