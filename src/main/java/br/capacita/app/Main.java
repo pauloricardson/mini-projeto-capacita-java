@@ -50,10 +50,10 @@ public class Main {
 
             System.out.printf(
                     "\nEsolha o que deseja fazer: "
-                            + "\n1 - Cadastrar Usuário"
-                            + "\n2 - Remover Usuario"
-                            + "\n3 - Pesquisar Usuário"
-                            + "\n4 - Empréstimo e Devolução"
+                            + "\n1. Cadastrar Usuário"
+                            + "\n2. Remover Usuario"
+                            + "\n3. Pesquisar Usuário"
+                            + "\n4. Cadastro de Livro"
                             + "\n5 - Pesquisar Livros"
                             + "\n6 - Sair\n"
                             + "Digite sua opção > "
@@ -270,6 +270,35 @@ public class Main {
                     break;
 
                 case 4:
+
+                    traco();
+                    System.out.println("<<< CADASTRO DE LIVRO >>>");
+                    traco();
+
+                    entrada = "\0";
+
+                    String titulo, autor;
+                    int exemplares;
+
+                    teclado.nextLine();
+
+                    System.out.println("TÍTULO: ");
+                    entrada = teclado.nextLine();
+
+                    System.out.println("AUTOR: ");
+                    autor = teclado.nextLine();
+
+                    System.out.println("N° DE EXEMPLATES: ");
+
+                    while (true) {
+                        try {
+                            exemplares = teclado.nextInt();
+                            break;
+                        } catch (Exception e) {
+                            System.out.print("Informe um número inteiro, tente novamente: ");
+                            teclado.nextLine();
+                        }
+                    }
 
                     break;
                 case 5:
