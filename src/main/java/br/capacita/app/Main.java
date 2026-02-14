@@ -300,10 +300,14 @@ public class Main {
 
                     traco();
                     System.out.println(
-                            "TÍTULO: " + titulo +
-                            "AUTOR: " + autor +
-                            "N° EXEMPLATES: " + exemplares
+                            "<<< CONFERIR INFORMAÇÕES >>>" +
+                            "\nTÍTULO: " + titulo +
+                            "\nAUTOR: " + autor +
+                            "\nN° EXEMPLATES: " + exemplares
                     );
+                    traco();
+
+                    System.out.print("Confirmar (s/n)? ");
 
                     entrada = "\0";
                     opcao = '\0';
@@ -330,13 +334,21 @@ public class Main {
 
                     } while (opcao != 's' && opcao != 'n');
 
+                    traco();
+
                     if (opcao == 's') {
                         Livro livro = new Livro(titulo, autor, exemplares);
                         repo.adicionarLivro(livro);
-                        System.out.println("MENSAGEM: Livro adicionado ao sistema.");
                     } else {
                         System.out.printf("MENSAGEM: Opreação de cadastro de livro cancelada\n");
                     }
+
+                    teclado.nextLine();
+
+                    traco();
+
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
 
                     limparConsole();
 
