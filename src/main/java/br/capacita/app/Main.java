@@ -483,6 +483,17 @@ public class Main {
                     limparConsole();
 
                     break;
+
+                case 7:
+                    traco();
+                    System.out.println("<<< REMOVER LIVRO >>>");
+                    traco();
+
+                    System.out.println("Informe o ID do LIVRO: ");
+
+
+
+                    break;
             }
         }
         traco();

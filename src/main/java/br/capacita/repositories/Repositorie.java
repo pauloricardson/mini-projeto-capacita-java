@@ -121,14 +121,13 @@ public class Repositorie {
 
     public void removerLivro(long id) {
         if (livros.isEmpty()) {
-            System.out.println("A lista de livros está vazia");
-            return;
+            throw new IllegalArgumentException("MENSAGEM: Nenhum livro encontrado");
         }
 
         for (Livro livro : livros) {
             if (livro.getId() == id) {
                 this.livros.remove(livro);
-                System.out.println("Livro " + livro.getTitulo() + " removido do sistema");
+                System.out.println("MENSAGEM: Livro " + livro.getTitulo() + " removido do sistema");
             }
         }
     }
