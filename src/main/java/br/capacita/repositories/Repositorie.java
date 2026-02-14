@@ -17,6 +17,14 @@ public class Repositorie {
         this.livros = new ArrayList<>();
     }
 
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public ArrayList<Livro> getLivros() {
+        return livros;
+    }
+
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
@@ -120,19 +128,25 @@ public class Repositorie {
     }
 
     public void removerLivro(long id) {
+
         if (livros.isEmpty()) {
             throw new IllegalArgumentException("MENSAGEM: Nenhum livro encontrado");
         }
 
-        for (Livro livro : livros) {
+        Iterator<Livro> it = livros.iterator();
+
+        while (it.hasNext()) {
+            Livro livro = it.next();
+
             if (livro.getId() == id) {
-                this.livros.remove(livro);
+                it.remove();
                 System.out.println("MENSAGEM: Livro " + livro.getTitulo() + " removido do sistema");
+                return;
             }
         }
+
+        throw new IllegalArgumentException("MENSAGEM: Livro não encontrado");
     }
-
-
 
     public void pesquisarLivro(String titulo) {
         String termoNormal = normalizar(titulo.toLowerCase());

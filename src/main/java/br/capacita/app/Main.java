@@ -505,9 +505,13 @@ public class Main {
                         }
                     }
 
+                    traco();
+
+
+
                     try {
                         repo.removerLivro(id);
-                    } catch (Exception e) {
+                    } catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
 
