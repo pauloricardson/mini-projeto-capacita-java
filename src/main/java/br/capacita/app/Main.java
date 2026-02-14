@@ -469,7 +469,10 @@ public class Main {
 
                     System.out.print("Busque por título: ");
                     entrada = "\0";
+                    teclado.nextLine();
                     entrada = teclado.nextLine();
+
+                    traco();
 
                     repo.pesquisarLivro(entrada);
 

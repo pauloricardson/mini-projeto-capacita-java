@@ -13,7 +13,7 @@ public class Livro {
         setAutor(autor);
         setExemplares(exemplares);
         setDisponivel(true);
-        this.id = 1;
+        this.id = gerarId();
     }
 
     public String getTitulo() {

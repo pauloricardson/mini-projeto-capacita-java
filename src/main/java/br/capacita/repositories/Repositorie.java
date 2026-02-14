@@ -147,10 +147,11 @@ public class Repositorie {
 
             if (nomeLivro.contains(termoNormal)) {
                 System.out.println(
-                        "ID: " +livro.getId() +
-                                "TÍTULO: " + livro.getTitulo() +
-                                "AUTOR: " + livro.getAutor() +
-                                "N° DE EXEMPLARES: " + livro.getExemplares() + "\n\n"
+                        "ID: " + livro.getId() +
+                                "\nTÍTULO: " + livro.getTitulo() +
+                                "\nAUTOR: " + livro.getAutor() +
+                                "\nN° DE EXEMPLARES: " + livro.getExemplares() +
+                                "STATUS: " + (livro.isDisponivel() ? "Disponível" : "Indisponível") + "\n"
                 );
                 encontrado = true;
             }
