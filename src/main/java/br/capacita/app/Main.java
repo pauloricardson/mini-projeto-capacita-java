@@ -280,13 +280,13 @@ public class Main {
 
                     teclado.nextLine();
 
-                    System.out.println("TÍTULO: ");
+                    System.out.print("TÍTULO: ");
                     titulo = teclado.nextLine();
 
-                    System.out.println("AUTOR: ");
+                    System.out.print("AUTOR: ");
                     autor = teclado.nextLine();
 
-                    System.out.println("N° DE EXEMPLATES: ");
+                    System.out.print("N° DE EXEMPLATES: ");
 
                     while (true) {
                         try {
