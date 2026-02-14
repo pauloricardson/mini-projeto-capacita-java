@@ -399,19 +399,20 @@ public class Main {
                     System.out.println(
                             "#" + livro.getId() +
                             "\nTÍTULO: " + livro.getTitulo() +
-                                    "\nN° DE EXEMPLARES: " + livro.getExemplares()
+                                    "\nN° DE EXEMPLARES: " + livro.getExemplares() +
+                                    "\nSTATUS: " + (livro.isDisponivel() ? "Disponível" : "Indisponível")
                     );
 
                     traco();
 
-                    System.out.println("O que deseja fazer?\n1. Editar n° de exemplares\n2. Tornar Livro dispoível/indisponível");
+                    System.out.println("O que deseja fazer?\n1. Editar n° de exemplares\n2. Tornar Livro dispoível/indisponível\n3. Voltar ao menu principal");
 
                     while (true) {
                         try {
                             System.out.print("> ");
                             opcaoLivro = teclado.nextInt();
 
-                            if (opcaoLivro != 1 && opcaoLivro != 2) {
+                            if (opcaoLivro != 1 && opcaoLivro != 2 && opcaoLivro!= 3) {
                                 throw new IllegalArgumentException();
                             }
 
@@ -435,7 +436,7 @@ public class Main {
 
                         System.out.println("MENSAGEM: Número de exemplares atualizado.");
 
-                    } else {
+                    } else if (opcaoLivro == 2){
                         try {
                             if (!livro.isDisponivel()) {
                                 if (livro.getExemplares() <= 0) {
@@ -452,6 +453,13 @@ public class Main {
                         }
                     }
 
+
+                    traco();
+
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
+
+                    limparConsole();
                     break;
                 case 6:
                     break;
