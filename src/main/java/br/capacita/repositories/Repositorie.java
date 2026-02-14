@@ -60,6 +60,33 @@ public class Repositorie {
         throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
     }
 
+    public void pesquisarUsuario(String nome) {
+        String termoNormal = normalizar(nome.toLowerCase());
+
+        boolean encontrado = false;
+
+        for (Usuario usuario : usuarios) {
+            String nomeUsuario = normalizar(
+                    usuario.getNome().toLowerCase()
+            );
+
+            if (nomeUsuario.contains(termoNormal)) {
+                System.out.format(
+                        "\nNome: " + usuario.getNome() +
+                                "\nCPF: " + usuario.getCpf() +
+                                "\nE-mail: " + usuario.getEmail() +
+                                "\nTIPO: " + usuario.tipoUsuario() +
+                                "\nSTATUS: " + usuario.getStatus() +
+                                "\n\n"
+                );
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("MENSAGEM: Sem resultados.");
+        }
+    }
+
 //    public Usuario selecionarUsuario (String cpf) {
 //        if (this.usuarios.isEmpty()) {
 //            return null;
@@ -108,32 +135,7 @@ public class Repositorie {
         }
     }
 
-    public void pesquisarUsuario(String nome) {
-        String termoNormal = normalizar(nome.toLowerCase());
 
-        boolean encontrado = false;
-
-        for (Usuario usuario : usuarios) {
-            String nomeUsuario = normalizar(
-                    usuario.getNome().toLowerCase()
-            );
-
-            if (nomeUsuario.contains(termoNormal)) {
-                System.out.format(
-                        "\nNome: " + usuario.getNome() +
-                                "\nCPF: " + usuario.getCpf() +
-                                "\nE-mail: " + usuario.getEmail() +
-                                "\nTIPO: " + usuario.tipoUsuario() +
-                                "\nSTATUS: " + usuario.getStatus() +
-                                "\n\n"
-                );
-                encontrado = true;
-            }
-        }
-        if (!encontrado) {
-            System.out.println("MENSAGEM: Sem resultados.");
-        }
-    }
 
     public void pesquisarLivro(String titulo) {
         String termoNormal = normalizar(titulo.toLowerCase());
