@@ -67,7 +67,7 @@ public class Main {
 
             limparConsole();
 
-            if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 7) {
+            if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 10) {
                 System.out.println("ATENÇÃO! Opção Inválida, tente novamente");
             }
 
@@ -361,12 +361,39 @@ public class Main {
                     traco();
 
                     int opcaoLivro;
+                    long id = 0;
 
+                    System.out.print("Informe o ID: ");
                     teclado.nextLine(); // limpar buffer
 
                     while (true) {
                         try {
-                            System.out.print("Informe o ID: ");
+                            id = teclado.nextLong();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("MENSAGEM: ID inválido, tente novamente: ");
+                            teclado.nextLine();
+                        }
+                    }
+
+                    try {
+                        repo.selecionarLivro(id);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        teclado.nextLine();
+
+                        traco();
+
+                        System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                        teclado.nextLine();
+
+                        limparConsole();
+                        break;
+                    }
+
+                    while (true) {
+                        try {
+                            System.out.print("Opção: ");
                             opcaoLivro = teclado.nextInt();
 
                             if (opcaoLivro != 1 && opcaoLivro != 2) {
