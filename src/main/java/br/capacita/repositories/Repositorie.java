@@ -5,6 +5,7 @@ import br.capacita.model.Usuario;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Repositorie {
 
@@ -37,17 +38,25 @@ public class Repositorie {
     }
 
     public void removerUsuario(String cpf) {
+
         if (this.usuarios.isEmpty()) {
-            throw new IllegalArgumentException("Lista de Usuários Vazia");
+            throw new IllegalArgumentException("Lista de usuários vazia");
         }
+
         cpf = cpf.replaceAll("\\D", "");
-        for (Usuario usuario : usuarios) {
+
+        Iterator<Usuario> iterator = usuarios.iterator();
+
+        while (iterator.hasNext()) {
+            Usuario usuario = iterator.next();
+
             if (usuario.getCpf().equals(cpf)) {
-                this.usuarios.remove(usuario);
+                iterator.remove(); // forma segura
                 System.out.println("Usuario " + usuario.getNome() + " removido do sistema");
                 return;
             }
         }
+
         throw new IllegalArgumentException("Usuário não encontrado");
     }
 

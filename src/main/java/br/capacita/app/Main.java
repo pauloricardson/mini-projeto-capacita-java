@@ -188,7 +188,11 @@ public class Main {
                     }
 
                     break;
-                case 2:
+
+                    // Remover Usuario
+
+
+                    case 2:
                     traco();
                     System.out.println("<<< Remoção de Usuário >>>");
                     traco();
