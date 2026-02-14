@@ -203,7 +203,7 @@ public class Main {
 
                     String removerPorCpf = teclado.nextLine();
 
-                    limparConsole();
+                    System.out.print("Confirmar (s/n)? ");
 
                     opcao = '\0';
 
@@ -229,6 +229,8 @@ public class Main {
 
                     } while (opcao != 's' && opcao != 'n');
 
+                    limparConsole();
+
                     if (opcao == 's') {
                         try {
                             repo.removerUsuario(removerPorCpf);
@@ -236,7 +238,7 @@ public class Main {
                             System.out.printf(e.getMessage() + "\n");
                         }
                     } else {
-                        System.out.printf("MENSAGEM: Opreação Cancelada");
+                        System.out.printf("MENSAGEM: Opreação de remoção de Usuário Cancelada\n");
                     }
 
                     break;
