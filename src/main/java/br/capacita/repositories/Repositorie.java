@@ -125,7 +125,7 @@ public class Repositorie {
                                 "\nE-mail: " + usuario.getEmail() +
                                 "\nTIPO: " + usuario.tipoUsuario() +
                                 "\nSTATUS: " + usuario.getStatus() +
-                                "\n--------------------------------------------------"
+                                "\n\n"
                 );
                 encontrado = true;
             }
