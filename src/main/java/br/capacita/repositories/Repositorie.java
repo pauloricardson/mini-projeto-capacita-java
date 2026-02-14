@@ -60,18 +60,18 @@ public class Repositorie {
         throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
     }
 
-    public Usuario selecionarUsuario (String cpf) {
-        if (this.usuarios.isEmpty()) {
-            return null;
-        }
-        cpf = cpf.replaceAll("\\D", "");
-        for (Usuario usuario : usuarios) {
-            if (usuario.getCpf().equals(cpf)) {
-                return usuario;
-            }
-        }
-        throw new IllegalArgumentException("Usuário não encontrado");
-    }
+//    public Usuario selecionarUsuario (String cpf) {
+//        if (this.usuarios.isEmpty()) {
+//            return null;
+//        }
+//        cpf = cpf.replaceAll("\\D", "");
+//        for (Usuario usuario : usuarios) {
+//            if (usuario.getCpf().equals(cpf)) {
+//                return usuario;
+//            }
+//        }
+//        throw new IllegalArgumentException("Usuário não encontrado");
+//    }
 
     public void listarUsuarios() {
         if (this.usuarios.isEmpty()) {
@@ -105,6 +105,33 @@ public class Repositorie {
                 this.livros.remove(livro);
                 System.out.println("Livro " + livro.getTitulo() + " removido do sistema");
             }
+        }
+    }
+
+    public void pesquisarUsuario(String nome) {
+        String termoNormal = normalizar(nome.toLowerCase());
+
+        boolean encontrado = false;
+
+        for (Usuario usuario : usuarios) {
+            String nomeUsuario = normalizar(
+                    usuario.getNome().toLowerCase()
+            );
+
+            if (nomeUsuario.contains(termoNormal)) {
+                System.out.format(
+                        "\nNome: " + usuario.getNome() +
+                                "\nCPF: " + usuario.getCpf() +
+                                "\nE-mail: " + usuario.getEmail() +
+                                "\nTIPO: " + usuario.tipoUsuario() +
+                                "\nSTATUS: " + usuario.getStatus() +
+                                "\n--------------------------------------------------"
+                );
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("MENSAGEM: Sem resultados.");
         }
     }
 

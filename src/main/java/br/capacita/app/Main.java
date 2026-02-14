@@ -189,9 +189,6 @@ public class Main {
 
                     break;
 
-                    // Remover Usuario
-
-
                     case 2:
                     traco();
                     System.out.println("<<< Remoção de Usuário >>>");
@@ -251,50 +248,36 @@ public class Main {
 
                 case 3:
                     traco();
-                    System.out.println("Cadastrar Livro");
+                    System.out.println("<<< Pesquisar Usuário >>>");
                     traco();
+
+                    System.out.print("Pesquisar por nome: ");
 
                     teclado.nextLine();
 
-                    System.out.print("Título: ");
-                    String titulo = teclado.nextLine();
-
-                    System.out.print("Autor: ");
-                    String autor = teclado.nextLine();
-
-                    System.out.print("Número de exemplares: ");
-                    int exemplares = teclado.nextInt();
+                    entrada = teclado.nextLine();
 
                     traco();
-                    System.out.println("Deseja Cadastrar Livros?");
+
+                    repo.pesquisarUsuario(entrada);
+
                     traco();
-                    System.out.println("1 - Sim\n2 - Não\n> ");
-                    int opcaoCadastroLivro = teclado.nextInt();
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
 
                     limparConsole();
-
-                    if (opcaoCadastroLivro == 1) {
-                        Livro livro = new Livro(titulo, autor, exemplares);
-                        repo.adicionarLivro(livro);
-                    } else {
-                        System.out.println("Opreração não concluída");
-                    }
-
 
                     break;
+
+
+
+
+
+
+
+
+
                 case 4:
-                    System.out.println("Pesquise o livro");
-                    teclado.nextLine();
-                    titulo = teclado.nextLine();
-                    System.out.println("Resultados: ");
-                    repo.pesquisarLivro(titulo);
-
-                    System.out.println("Pressione Qualquer tecla para sair");
-                    teclado.nextLine();
-
-                    limparConsole();
-
-
 
                     break;
                 case 5:

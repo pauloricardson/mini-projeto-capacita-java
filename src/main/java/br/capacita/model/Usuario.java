@@ -5,11 +5,13 @@ public abstract class Usuario {
     private String nome;
     private String email;
     private String cpf;
+    private StatusUsuario status;
 
     public Usuario(String nome, String cpf, String email) {
         setNome(nome);
         setCpf(cpf);
         setEmail(email);
+        this.status = StatusUsuario.ATIVO;
     }
 
     public String getNome() {
@@ -22,6 +24,10 @@ public abstract class Usuario {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public StatusUsuario getStatus() {
+        return status;
     }
 
     public void setNome(String nome) {
@@ -43,6 +49,10 @@ public abstract class Usuario {
             throw new IllegalArgumentException("CPF não pode ser nulo ou vazio");
         }
         this.cpf = cpf.replaceAll("\\D", "");
+    }
+
+    public void setStatus(StatusUsuario status) {
+        this.status = status;
     }
 
     public abstract String tipoUsuario();
