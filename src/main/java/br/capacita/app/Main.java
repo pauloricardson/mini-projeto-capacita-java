@@ -330,6 +330,16 @@ public class Main {
 
                     } while (opcao != 's' && opcao != 'n');
 
+                    if (opcao == 's') {
+                        Livro livro = new Livro(titulo, autor, exemplares);
+                        repo.adicionarLivro(livro);
+                        System.out.println("MENSAGEM: Livro adicionado ao sistema.");
+                    } else {
+                        System.out.printf("MENSAGEM: Opreação de cadastro de livro cancelada\n");
+                    }
+
+                    limparConsole();
+
                     break;
                 case 5:
                     break;
