@@ -118,7 +118,7 @@ public class Repositorie {
 
     public void adicionarLivro(Livro livro) {
         this.livros.add(livro);
-        System.out.println("ATENÇÃO! Livro adicionado com sucesso.");
+        System.out.println("MENSAGEM: Livro adicionado com sucesso.");
     }
 
     public void removerLivro(long id) {
