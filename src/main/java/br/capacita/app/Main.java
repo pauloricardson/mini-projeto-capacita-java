@@ -43,21 +43,24 @@ public class Main {
 
         int opcaoMenuPrincipal = 0;
 
-        while (opcaoMenuPrincipal != 10) {
+        while (opcaoMenuPrincipal != 9) {
 
             traco();
             System.out.println("Sistema de Empréstimo de Livros");
             traco();
 
             System.out.printf(
-                    "\nEsolha o que deseja fazer: "
+                    "Esolha o que deseja fazer: "
                             + "\n1. Cadastrar Usuário"
                             + "\n2. Remover Usuario"
                             + "\n3. Pesquisar Usuário"
                             + "\n4. Cadastro de Livro"
                             + "\n5. Editar Livro"
-                            + "\n6 - Sair\n"
-                            + "Digite sua opção > "
+                            + "\n6. Buscar Livro"
+                            + "\n7. Remover Livro"
+                            + "\n8. Emprestimo/Devolução"
+                            + "\n9. SAIR"
+                            + "\n\nDigite sua opção > "
             );
 
             try {
@@ -68,7 +71,7 @@ public class Main {
 
             limparConsole();
 
-            if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 10) {
+            if (opcaoMenuPrincipal <= 0 || opcaoMenuPrincipal > 9) {
                 System.out.println("ATENÇÃO! Opção Inválida, tente novamente");
             }
 
