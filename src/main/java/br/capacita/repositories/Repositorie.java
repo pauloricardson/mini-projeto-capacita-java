@@ -146,7 +146,12 @@ public class Repositorie {
             );
 
             if (nomeLivro.contains(termoNormal)) {
-                System.out.println(livro.getTitulo() + "teste");
+                System.out.println(
+                        "ID: " +livro.getId() +
+                                "TÍTULO: " + livro.getTitulo() +
+                                "AUTOR: " + livro.getAutor() +
+                                "N° DE EXEMPLARES: " + livro.getExemplares() + "\n\n"
+                );
                 encontrado = true;
             }
         }

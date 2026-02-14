@@ -462,6 +462,24 @@ public class Main {
                     limparConsole();
                     break;
                 case 6:
+
+                    traco();
+                    System.out.println("<<< BUSCAR LIVRO >>>");
+                    traco();
+
+                    System.out.print("Busque por título: ");
+                    entrada = "\0";
+                    entrada = teclado.nextLine();
+
+                    repo.pesquisarLivro(entrada);
+
+                    traco();
+
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
+
+                    limparConsole();
+
                     break;
             }
         }
