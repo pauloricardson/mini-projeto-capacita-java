@@ -6,6 +6,7 @@ import br.capacita.model.Professor;
 import br.capacita.model.Usuario;
 import br.capacita.repositories.Repositorie;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -507,7 +508,25 @@ public class Main {
 
                     traco();
 
+                    ArrayList<Livro> obterLivros = repo.getLivros();
 
+                    if (obterLivros.isEmpty()) {
+                        System.out.println("MENSAGEM: Nenhuma livro encontrado");
+                        break;
+                    }
+
+                    System.out.println("<<< LIVRO SELECIONADO >>>");
+
+                    for (Livro l : obterLivros) {
+                        if (l.getId() == id) {
+                            System.out.println("ID: " + l.getId() + " | TÍTULO: " + l.getTitulo());
+                        }
+                    }
+
+                    traco();
+
+                    teclado.nextLine();
+                    teclado.nextLine();
 
                     try {
                         repo.removerLivro(id);
