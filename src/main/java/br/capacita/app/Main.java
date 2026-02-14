@@ -205,7 +205,6 @@ public class Main {
                         System.out.println("1 - SIM");
                         System.out.println("2 - NÃO");
                         System.out.println("> ");
-                        limparConsole();
                         int opcaoRemocao = teclado.nextInt();
 
                         if (opcaoRemocao == 1) {
