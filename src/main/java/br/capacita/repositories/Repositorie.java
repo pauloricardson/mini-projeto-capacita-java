@@ -38,8 +38,7 @@ public class Repositorie {
 
     public void removerUsuario(String cpf) {
         if (this.usuarios.isEmpty()) {
-            System.out.println("Lista de Usuários Vazia");
-            return;
+            throw new IllegalArgumentException("Lista de Usuários Vazia");
         }
         cpf = cpf.replaceAll("\\D", "");
         for (Usuario usuario : usuarios) {
@@ -49,7 +48,7 @@ public class Repositorie {
                 return;
             }
         }
-        System.out.println("Usuário não encontrado");
+        throw new IllegalArgumentException("Usuário não encontrado");
     }
 
     public Usuario selecionarUsuario (String cpf) {

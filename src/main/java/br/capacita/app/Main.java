@@ -207,6 +207,7 @@ public class Main {
                         System.out.println("> ");
                         limparConsole();
                         int opcaoRemocao = teclado.nextInt();
+
                         if (opcaoRemocao == 1) {
                             repo.removerUsuario(removerPorCpf);
                         } else {
