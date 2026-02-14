@@ -275,15 +275,13 @@ public class Main {
                     System.out.println("<<< CADASTRO DE LIVRO >>>");
                     traco();
 
-                    entrada = "\0";
-
                     String titulo, autor;
                     int exemplares;
 
                     teclado.nextLine();
 
                     System.out.println("TÍTULO: ");
-                    entrada = teclado.nextLine();
+                    titulo = teclado.nextLine();
 
                     System.out.println("AUTOR: ");
                     autor = teclado.nextLine();
@@ -299,6 +297,38 @@ public class Main {
                             teclado.nextLine();
                         }
                     }
+
+                    traco();
+                    System.out.println(
+                            "TÍTULO: " + titulo +
+                            "AUTOR: " + autor +
+                            "N° EXEMPLATES: " + exemplares
+                    );
+
+                    entrada = "\0";
+                    opcao = '\0';
+
+                    do {
+                        try {
+
+                            entrada = teclado.next();
+
+                            if (entrada.length() == 1) {
+                                opcao = entrada.toLowerCase().charAt(0);
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+
+                            if (opcao != 's' && opcao != 'n') {
+                                throw new IllegalArgumentException();
+                            }
+
+                        } catch (Exception e) {
+                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                            teclado.nextLine();
+                        }
+
+                    } while (opcao != 's' && opcao != 'n');
 
                     break;
                 case 5:
