@@ -508,32 +508,42 @@ public class Main {
 
                     traco();
 
-                    ArrayList<Livro> obterLivros = repo.getLivros();
+                    entrada = "\0";
+                    opcao = '\0';
 
-                    if (obterLivros.isEmpty()) {
-                        System.out.println("MENSAGEM: Nenhuma livro encontrado");
-                        break;
-                    }
+                    System.out.print("Confirmar (s/n)? ");
 
-                    System.out.println("<<< LIVRO SELECIONADO >>>");
+                    do {
+                        try {
 
-                    for (Livro l : obterLivros) {
-                        if (l.getId() == id) {
-                            System.out.println("ID: " + l.getId() + " | TÍTULO: " + l.getTitulo());
+                            entrada = teclado.next();
+
+                            if (entrada.length() == 1) {
+                                opcao = entrada.toLowerCase().charAt(0);
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+
+                            if (opcao != 's' && opcao != 'n') {
+                                throw new IllegalArgumentException();
+                            }
+
+                        } catch (Exception e) {
+                            System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                            teclado.nextLine();
+                        }
+
+                    } while (opcao != 's' && opcao != 'n');
+
+                    if (opcao == 'n') {
+                        System.out.println("MENSAGEM: Remoção de Livro cancelada");
+                    } else {
+                        try {
+                            repo.removerLivro(id);
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage());
                         }
                     }
-
-                    traco();
-
-                    teclado.nextLine();
-                    teclado.nextLine();
-
-                    try {
-                        repo.removerLivro(id);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-
                     traco();
 
                     System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
