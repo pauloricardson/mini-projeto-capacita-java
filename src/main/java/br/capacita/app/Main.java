@@ -489,9 +489,35 @@ public class Main {
                     System.out.println("<<< REMOVER LIVRO >>>");
                     traco();
 
-                    System.out.println("Informe o ID do LIVRO: ");
+                    System.out.print("Informe o ID do LIVRO: ");
 
+                    id = 0;
 
+                    teclado.nextLine();
+
+                    while (true) {
+                        try {
+                            id = teclado.nextLong();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("MENSAGEM: ID inválido, tente novamente.");
+                            teclado.nextLine();
+                        }
+                    }
+
+                    try {
+                        repo.removerLivro(id);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                    traco();
+
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
+                    teclado.nextLine();
+
+                    limparConsole();
 
                     break;
             }
