@@ -54,7 +54,7 @@ public class Main {
                             + "\n2. Remover Usuario"
                             + "\n3. Pesquisar Usuário"
                             + "\n4. Cadastro de Livro"
-                            + "\n5 - Pesquisar Livros"
+                            + "\n5. Editar Livro"
                             + "\n6 - Sair\n"
                             + "Digite sua opção > "
             );
@@ -353,7 +353,9 @@ public class Main {
                     limparConsole();
 
                     break;
-                case 5:
+
+                    // Editar Livro
+                    case 5:
                     break;
                 case 6:
                     break;

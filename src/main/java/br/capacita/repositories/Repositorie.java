@@ -100,20 +100,18 @@ public class Repositorie {
 //        throw new IllegalArgumentException("Usuário não encontrado");
 //    }
 
-    public void listarUsuarios() {
-        if (this.usuarios.isEmpty()) {
-            System.out.println("Lista de Usuários Vazia");
-            return;
+    public Livro selecionarLivro(long id) {
+        if (this.livros.isEmpty()) {
+            throw new IllegalArgumentException("MENSAGEM: Lista de livros vazia");
         }
-        int count = 0;
-        for (Usuario usuario : usuarios) {
-            count++;
-            System.out.println("#" + count + " | NOME: "
-                    + usuario.getNome() + " | CPF: "
-                    + usuario.getCpf() + " | EMAIL: "
-                    + usuario.getEmail() + " | TIPO: "
-                    + usuario.tipoUsuario());
+
+        for (Livro livro : livros) {
+            if (livro.getId() == id) {
+                return livro;
+            }
         }
+
+        throw new IllegalArgumentException("MENSAGEM: Livro não encontrado");
     }
 
     public void adicionarLivro(Livro livro) {
@@ -157,6 +155,22 @@ public class Repositorie {
             System.out.println("Nenhum livro encontrado na pesquisa");
         }
     }
+
+//    public void listarUsuarios() {
+//        if (this.usuarios.isEmpty()) {
+//            System.out.println("Lista de Usuários Vazia");
+//            return;
+//        }
+//        int count = 0;
+//        for (Usuario usuario : usuarios) {
+//            count++;
+//            System.out.println("#" + count + " | NOME: "
+//                    + usuario.getNome() + " | CPF: "
+//                    + usuario.getCpf() + " | EMAIL: "
+//                    + usuario.getEmail() + " | TIPO: "
+//                    + usuario.tipoUsuario());
+//        }
+//    }
 
     public String normalizar(String texto) {
         texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
