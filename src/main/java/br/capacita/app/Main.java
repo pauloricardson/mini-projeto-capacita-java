@@ -453,7 +453,6 @@ public class Main {
                         }
                     }
 
-
                     traco();
 
                     System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
