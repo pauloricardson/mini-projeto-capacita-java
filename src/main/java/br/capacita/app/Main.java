@@ -376,8 +376,10 @@ public class Main {
                         }
                     }
 
+                    Livro livro;
+
                     try {
-                        repo.selecionarLivro(id);
+                        livro = repo.selecionarLivro(id);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                         teclado.nextLine();
@@ -391,9 +393,22 @@ public class Main {
                         break;
                     }
 
+                    traco();
+                    System.out.println("<<< Livro selecionado >>>");
+
+                    System.out.println(
+                            "#" + livro.getId() +
+                            "\nTÍTULO: " + livro.getTitulo() +
+                                    "\nN° DE EXEMPLARES: " + livro.getExemplares()
+                    );
+
+                    traco();
+
+                    System.out.println("O que deseja fazer?\n1. Editar n° de exemplares\n2. Tornar Livro dispoível/indisponível");
+
                     while (true) {
                         try {
-                            System.out.print("Opção: ");
+                            System.out.print("> ");
                             opcaoLivro = teclado.nextInt();
 
                             if (opcaoLivro != 1 && opcaoLivro != 2) {
@@ -403,8 +418,37 @@ public class Main {
                             break; // sai do loop se válido
 
                         } catch (Exception e) {
+                            traco();
                             System.out.println("MENSAGEM: Opção inválida. Tente novamente.");
                             teclado.nextLine(); // limpar entrada inválida
+                        }
+                    }
+
+                    teclado.nextLine();
+
+                    if (opcaoLivro == 1) {
+                        System.out.print("NOVO NÚMERO DE EXEMPLARES: ");
+                        livro.setExemplares(teclado.nextInt());
+                        if (livro.getExemplares() <= 0) {
+                            livro.setDisponivel(false);
+                        }
+
+                        System.out.println("MENSAGEM: Número de exemplares atualizado.");
+
+                    } else {
+                        try {
+                            if (!livro.isDisponivel()) {
+                                if (livro.getExemplares() <= 0) {
+                                    throw new IllegalArgumentException("MESNAGEM: O livro não pode ser habilitado, não há exemplares");
+                                }
+                                livro.setDisponivel(true);
+                                System.out.println("MENSAGEM: Livro habilidado.");
+                            } else {
+                                livro.setDisponivel(false);
+                                System.out.println("MENSAGEM: Livro desabilidado.");
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
                         }
                     }
 
