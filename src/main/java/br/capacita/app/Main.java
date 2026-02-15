@@ -702,11 +702,9 @@ public class Main {
                                     System.out.println(e.getMessage());
                                 }
                                 traco();
-                            } else {
-
                             }
                         } else {
-                            break;
+                            System.out.println("MENSAGEM: Opreação cancelada.");
                         }
                     }
 
