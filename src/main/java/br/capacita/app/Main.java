@@ -691,6 +691,8 @@ public class Main {
 
                         } while (opcao != 's' && opcao != 'n');
 
+                        traco();
+
                         if (opcao == 's') {
                             if (opcaoEmpDev == 1) {
                                 try {
