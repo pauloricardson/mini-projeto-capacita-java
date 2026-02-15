@@ -693,8 +693,12 @@ public class Main {
 
                         if (opcao == 's') {
                             if (opcaoEmpDev == 1) {
-                                BibliotecaService emprestar = new BibliotecaService(livroSelcionado, usuarioSelecionado);
-                                emprestar.emprestarLivro();
+                                try {
+                                    BibliotecaService emprestar = new BibliotecaService(livroSelcionado, usuarioSelecionado);
+                                    emprestar.emprestarLivro();
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
                                 traco();
                                 System.out.println("MENSAGEM: Livro emprestado com sucesso.");
                             } else {
