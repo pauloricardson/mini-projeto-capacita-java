@@ -59,7 +59,8 @@ public class Main {
                             + "\n6. Buscar Livro"
                             + "\n7. Remover Livro"
                             + "\n8. Emprestimo/Devolução"
-                            + "\n9. SAIR"
+                            + "\n9. Listar Emprestimos/Devoluções"
+                            + "\n10. SAIR"
                             + "\n\nDigite sua opção > "
             );
 
@@ -547,6 +548,62 @@ public class Main {
                             System.out.println(e.getMessage());
                         }
                     }
+                    traco();
+
+                    System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
+                    teclado.nextLine();
+                    teclado.nextLine();
+
+                    limparConsole();
+
+                    break;
+
+                case 8:
+                    traco();
+                    System.out.println("<<< EMPRÉSTIMO/DEVOLUÇÃO >>>");
+                    traco();
+
+                    System.out.format(
+                            "\nO que deseja fazer?\n1. Empréstimo\n2. Devolução\n3. Voltar ao MENU princiapl\n> "
+                    );
+
+                    teclado.nextLine();
+
+                    int opcaoEmpDev = 0;
+
+                    while (true) {
+                        try {
+                            opcaoEmpDev = teclado.nextInt();
+
+                            if (opcaoEmpDev < 1 || opcaoEmpDev > 3) {
+                                throw new IllegalArgumentException();
+                            }
+
+                            break;
+                        } catch (Exception e) {
+                            System.out.print("Opção inválida, tente novamente > ");
+                            teclado.nextLine();
+                        }
+                    }
+
+                    if (opcaoEmpDev == 3) {
+                        limparConsole();
+                        break;
+                    }
+
+                    limparConsole();
+                    traco();
+                    System.out.println("<<< EMPRÉSTIMO/DEVOLUÇÃO >>>");
+                    traco();
+
+
+
+                    if (opcaoEmpDev == 1) {
+
+                    } else {
+
+                    }
+
                     traco();
 
                     System.out.printf("Pressiona ENTER para voltar ao menu principal...\n");
