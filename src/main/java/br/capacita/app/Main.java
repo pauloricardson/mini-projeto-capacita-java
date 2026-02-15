@@ -700,7 +700,6 @@ public class Main {
                                     System.out.println(e.getMessage());
                                 }
                                 traco();
-                                System.out.println("MENSAGEM: Livro emprestado com sucesso.");
                             } else {
 
                             }
