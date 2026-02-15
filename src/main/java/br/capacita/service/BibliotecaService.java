@@ -25,7 +25,7 @@ public class BibliotecaService {
             throw new UsuarioIndisponivelException("MENSAGEM! Empréstimo indisponível, usuário não ATIVO.");
         }
 
-        if (livro.getExemplares() <= 0 && !livro.isDisponivel()) {
+        if (livro.getExemplares() <= 0 || !livro.isDisponivel()) {
             throw new LivroIndisponivelException("MENSAGEM: Livro indisponível para empréstimo.");
         }
 

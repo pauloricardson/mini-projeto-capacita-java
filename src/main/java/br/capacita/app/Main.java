@@ -665,7 +665,7 @@ public class Main {
                         System.out.println("TÍTULO: " + livroSelcionado.getTitulo());
                         traco();
 
-                        System.out.println("Confirmar (s/n)?");
+                        System.out.print("Confirmar (s/n)?" );
 
                         opcao = '\0';
 

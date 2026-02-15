@@ -164,7 +164,7 @@ public class Repositorie {
                                 "\nTÍTULO: " + livro.getTitulo() +
                                 "\nAUTOR: " + livro.getAutor() +
                                 "\nN° DE EXEMPLARES: " + livro.getExemplares() +
-                                "STATUS: " + (livro.isDisponivel() ? "Disponível" : "Indisponível") + "\n"
+                                "\nSTATUS: " + (livro.isDisponivel() ? "Disponível" : "Indisponível") + "\n"
                 );
                 encontrado = true;
             }
