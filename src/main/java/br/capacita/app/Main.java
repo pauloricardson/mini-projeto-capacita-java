@@ -5,6 +5,7 @@ import br.capacita.model.Livro;
 import br.capacita.model.Professor;
 import br.capacita.model.Usuario;
 import br.capacita.repositories.Repositorie;
+import br.capacita.service.BibliotecaService;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -655,18 +656,52 @@ public class Main {
 
                     if (check) {
                         traco();
-                        System.out.println("<<< USUÁRIO >>>");
+                        System.out.println("<<< USUÁRIO SELECIONADO >>>");
                         System.out.println("NOME: " + usuarioSelecionado.getNome());
                         System.out.println("CPF: " + usuarioSelecionado.getEmail());
                         System.out.println();
-                        System.out.println("<<< LIVRO >>>");
+                        System.out.println("<<< LIVRO SELECIONADO >>>");
                         System.out.println("ID: " + livroSelcionado.getId());
                         System.out.println("TÍTULO: " + livroSelcionado.getTitulo());
                         traco();
-                        if (opcaoEmpDev == 1) {
 
+                        System.out.println("Confirmar (s/n)?");
+
+                        opcao = '\0';
+
+                        do {
+                            try {
+
+                                entrada = teclado.next();
+
+                                if (entrada.length() == 1) {
+                                    opcao = entrada.toLowerCase().charAt(0);
+                                } else {
+                                    throw new IllegalArgumentException();
+                                }
+
+                                if (opcao != 's' && opcao != 'n') {
+                                    throw new IllegalArgumentException();
+                                }
+
+                            } catch (Exception x) {
+                                System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                                teclado.nextLine();
+                            }
+
+                        } while (opcao != 's' && opcao != 'n');
+
+                        if (opcao == 's') {
+                            if (opcaoEmpDev == 1) {
+                                BibliotecaService emprestar = new BibliotecaService(livroSelcionado, usuarioSelecionado);
+                                emprestar.emprestarLivro();
+                                traco();
+                                System.out.println("MENSAGEM: Livro emprestado com sucesso.");
+                            } else {
+
+                            }
                         } else {
-
+                            break;
                         }
                     }
 
