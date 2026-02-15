@@ -95,18 +95,18 @@ public class Repositorie {
         }
     }
 
-//    public Usuario selecionarUsuario (String cpf) {
-//        if (this.usuarios.isEmpty()) {
-//            return null;
-//        }
-//        cpf = cpf.replaceAll("\\D", "");
-//        for (Usuario usuario : usuarios) {
-//            if (usuario.getCpf().equals(cpf)) {
-//                return usuario;
-//            }
-//        }
-//        throw new IllegalArgumentException("Usuário não encontrado");
-//    }
+   public Usuario selecionarUsuario (String cpf) {
+        if (this.usuarios.isEmpty()) {
+            throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
+        }
+        cpf = cpf.replaceAll("\\D", "");
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCpf().equals(cpf)) {
+                return usuario;
+            }
+        }
+        throw new IllegalArgumentException("MENSAGEM: Usuário não encontrado.");
+    }
 
     public Livro selecionarLivro(long id) {
         if (this.livros.isEmpty()) {

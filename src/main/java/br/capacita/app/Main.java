@@ -593,15 +593,81 @@ public class Main {
 
                     limparConsole();
                     traco();
-                    System.out.println("<<< EMPRÉSTIMO/DEVOLUÇÃO >>>");
+                    System.out.println("<<< IDENTIFICAÇÃO DO USUÁRIO EMPRÉSTIMO/DEVOLUÇÃO >>>");
                     traco();
 
+                    teclado.nextLine();
+
+                    boolean check = true;
+
+                    Usuario usuarioSelecionado = null;
+                    Livro livroSelcionado = null;
 
 
-                    if (opcaoEmpDev == 1) {
+                    while (check) {
 
-                    } else {
+                        System.out.print("CPF (usuário): ");
+                        cpf = teclado.nextLine();
 
+                        System.out.print("ID do livro: ");
+                        id = teclado.nextLong();
+
+                        try {
+                            usuarioSelecionado = repo.selecionarUsuario(cpf);
+                            livroSelcionado = repo.selecionarLivro(id);
+                            break;
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                            traco();
+
+                            opcao = '\0';
+                            System.out.print("Deseja tentar novamente (s/n)? ");
+
+                            do {
+                                try {
+
+                                    entrada = teclado.next();
+
+                                    if (entrada.length() == 1) {
+                                        opcao = entrada.toLowerCase().charAt(0);
+                                    } else {
+                                        throw new IllegalArgumentException();
+                                    }
+
+                                    if (opcao != 's' && opcao != 'n') {
+                                        throw new IllegalArgumentException();
+                                    }
+
+                                } catch (Exception x) {
+                                    System.out.print("ATENÇÃO! Opção inválida. Digite novamente (s/n): ");
+                                    teclado.nextLine();
+                                }
+
+                            } while (opcao != 's' && opcao != 'n');
+
+                            if (opcao == 'n') {
+                                check = false;
+                                break;
+                            }
+                            teclado.nextLine();
+                        }
+                    }
+
+                    if (check) {
+                        traco();
+                        System.out.println("<<< USUÁRIO >>>");
+                        System.out.println("NOME: " + usuarioSelecionado.getNome());
+                        System.out.println("CPF: " + usuarioSelecionado.getEmail());
+                        System.out.println();
+                        System.out.println("<<< LIVRO >>>");
+                        System.out.println("ID: " + livroSelcionado.getId());
+                        System.out.println("TÍTULO: " + livroSelcionado.getTitulo());
+                        traco();
+                        if (opcaoEmpDev == 1) {
+
+                        } else {
+
+                        }
                     }
 
                     traco();
